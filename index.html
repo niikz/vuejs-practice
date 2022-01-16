@@ -19,13 +19,17 @@
         <td><button @click="addTask">Add</button></td>
       </tr>
     </table>
+    <hr>
 
     <table>
       <tr v-for="task in tasks" :key="task.id">
         <td>{{ task.id }}</td>
         <td>{{ task.done }}</td>
-        <td>{{ task.title }}</td>
+        <td v-if="task.id != edit">{{ task.title }}</td>
+        <td v-else><input v-model="task.title" type="text"></td>
         <td><button @click="changeStatus(task.id)">changeStatus</button></td>
+        <td v-if="task.id != edit"><button @click="editTask(task.id)">edit</button></td>
+        <td v-else><button @click="saveTasks">Save</button></td>
         <td><button @click="deleteTask(task.id)">delete</button></td>
       </tr>
     </table>

@@ -9,7 +9,8 @@ const appData = {
   appName: 'TO-DO APP',
   tasks: tasks,
   done: false,
-  title: ''
+  title: '',
+  edit: 0
 }
 
 const app = Vue.createApp({
@@ -25,6 +26,9 @@ const app = Vue.createApp({
         if (task.id === id) task.done = !task.done
       })
     },
+    editTask (id) {
+      this.edit = id
+    },
     deleteTask (id) {
       this.tasks = this.tasks.filter(task => {
         return task.id !== id
@@ -38,11 +42,12 @@ const app = Vue.createApp({
       }
       if (this.title.length > 0) this.tasks.push(task)
       this.saveTasks()
-      this.title = ''
     },
     saveTasks () {
       const data = JSON.stringify(this.tasks)
       localStorage.setItem('task', data)
+      this.title = ''
+      this.edit = 0
     },
     loadTasks () {
       const data = localStorage.getItem('task')
