@@ -15,6 +15,13 @@ const appData = {
 const app = Vue.createApp({
   data () {
     return appData
+  },
+  methods: {
+    changeStatus (id) {
+      this.tasks.forEach(task => {
+        if (task.id === id) task.done = !task.done
+      })
+    }
   }
 })
 
