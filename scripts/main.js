@@ -34,7 +34,12 @@ const app = Vue.createApp({
         title: this.title
       }
       if (this.title.length > 0) this.tasks.push(task)
+      this.saveTasks()
       this.title = ''
+    },
+    saveTasks () {
+      const data = JSON.stringify(this.tasks)
+      localStorage.setItem('task', data)
     }
   }
 })
