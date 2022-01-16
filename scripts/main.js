@@ -21,6 +21,11 @@ const app = Vue.createApp({
       this.tasks.forEach(task => {
         if (task.id === id) task.done = !task.done
       })
+    },
+    deleteTask (id) {
+      this.tasks = this.tasks.filter(task => {
+        return task.id !== id
+      })
     }
   }
 })

@@ -18,6 +18,7 @@
         <td>{{ task.done }}</td>
         <td>{{ task.title }}</td>
         <td><button @click="changeStatus(task.id)">changeStatus</button></td>
+        <td><button @click="deleteTask(task.id)">delete</button></td>
       </tr>
     </table>
   </div>
