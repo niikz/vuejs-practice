@@ -53,6 +53,11 @@ const app = Vue.createApp({
       const data = localStorage.getItem('task')
       if (data !== null) this.tasks = JSON.parse(data)
     }
+  },
+  computed: {
+    getTasks () {
+      return this.tasks.sort((a, b) => b.id - a.id)
+    }
   }
 })
 

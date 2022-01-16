@@ -21,7 +21,7 @@
     </table>
 
     <table class="task">
-      <tr v-for="task in tasks" :key="task.id">
+      <tr v-for="task in getTasks" :key="task.id">
         <td><button @click="changeStatus(task.id)" class="button" :class="{ done: task.done }"><span v-if="task.done">Done</span><span v-else>Pending</span></button></td>
         <td v-if="task.id != edit">{{ task.title }}</td>
         <td v-else><input v-model="task.title" type="text"></td>
