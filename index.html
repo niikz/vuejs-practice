@@ -11,6 +11,14 @@
 <body>
   <div id="app">
     <h1>{{ appName }}</h1>
+    <hr>
+
+    <table>
+      <tr>
+        <td><input v-model="title" type="text"></td>
+        <td><button @click="addTask">Add</button></td>
+      </tr>
+    </table>
 
     <table>
       <tr v-for="task in tasks" :key="task.id">

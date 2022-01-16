@@ -26,6 +26,15 @@ const app = Vue.createApp({
       this.tasks = this.tasks.filter(task => {
         return task.id !== id
       })
+    },
+    addTask () {
+      const task = {
+        id: Number(Date.now()),
+        done: false,
+        title: this.title
+      }
+      if (this.title.length > 0) this.tasks.push(task)
+      this.title = ''
     }
   }
 })
