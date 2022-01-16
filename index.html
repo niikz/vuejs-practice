@@ -13,7 +13,7 @@
     <h1>{{ appName }}</h1>
 
     <table>
-      <tr v-for="task in tasks">
+      <tr v-for="task in tasks" :key="task.id">
         <td>{{ task.id }}</td>
         <td>{{ task.done }}</td>
         <td>{{ task.title }}</td>
