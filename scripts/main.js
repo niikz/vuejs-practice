@@ -16,6 +16,9 @@ const app = Vue.createApp({
   data () {
     return appData
   },
+  created () {
+    this.loadTasks()
+  },
   methods: {
     changeStatus (id) {
       this.tasks.forEach(task => {
@@ -40,6 +43,10 @@ const app = Vue.createApp({
     saveTasks () {
       const data = JSON.stringify(this.tasks)
       localStorage.setItem('task', data)
+    },
+    loadTasks () {
+      const data = localStorage.getItem('task')
+      if (data !== null) this.tasks = JSON.parse(data)
     }
   }
 })
